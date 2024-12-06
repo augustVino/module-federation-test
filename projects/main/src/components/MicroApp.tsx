@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import type { SuspenseProps } from 'react';
 import { lazily, lazyImport } from './util';
+import { init, loadRemote } from '@module-federation/enhanced/runtime';
 
 interface BaseProps {
   // 远程应用名

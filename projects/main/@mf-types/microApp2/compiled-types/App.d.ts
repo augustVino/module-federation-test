@@ -1,3 +1,3 @@
 import React from 'react';
-declare function App(): React.JSX.Element;
-export default App;
+declare const _default: React.ForwardRefExoticComponent<Omit<any, "ref"> & React.RefAttributes<HTMLInputElement>>;
+export default _default;

@@ -13,7 +13,12 @@ module.exports = {
   devServer: {
     port: 8001,
     static: path.join(__dirname, 'dist'),
-    hot: true
+    hot: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
+    }
   },
   output: {
     publicPath: 'auto'
@@ -72,7 +77,7 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: 'microApp1',
-      filename: 'remoteEntry.js',
+      //   filename: 'remoteEntry.js',
       exposes: {
         './App': './src/exposes'
       },

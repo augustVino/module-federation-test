@@ -12,7 +12,12 @@ module.exports = {
   devServer: {
     port: 8000,
     static: path.join(__dirname, 'dist'),
-    hot: true
+    hot: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
+    }
   },
   output: {
     publicPath: 'auto'
@@ -72,10 +77,10 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'main',
       remotes: {
-        // microApp1: 'microApp1@http://localhost:8001/mf-manifest.json'
-        microApp1: 'microApp1@http://localhost:8001/remoteEntry.js',
-        // microApp2: 'microApp2@http://localhost:8002/mf-manifest.json'
-        microApp2: 'microApp2@http://localhost:8002/remoteEntry.js'
+        microApp1: 'microApp1@http://localhost:8001/mf-manifest.json',
+        // microApp1: 'microApp1@http://localhost:8001/remoteEntry.js',
+        microApp2: 'microApp2@http://localhost:8002/mf-manifest.json'
+        // microApp2: 'microApp2@http://localhost:8002/remoteEntry.js'
       },
       shared: ['react', 'react-dom']
     }),
