@@ -132,6 +132,7 @@ module.exports = {
           singleton: true
         }
       }
+      //   runtimePlugins: [path.join(__dirname, './mf.js')]
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html'

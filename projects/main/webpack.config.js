@@ -119,12 +119,13 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'main',
       remotes: {
-        microApp1: 'microApp1@http://localhost:8001/mf-manifest.json',
+        microApp1: 'microApp1@http://localhost:8001/mf-manifest.json'
         // microApp1: 'microApp1@http://localhost:8001/remoteEntry.js',
-        microApp2: 'microApp2@http://localhost:8002/mf-manifest.json'
+        // microApp2: 'microApp2@http://localhost:8002/mf-manifest.json'
         // microApp2: 'microApp2@http://localhost:8002/remoteEntry.js'
       },
-      shared: ['react', 'react-dom']
+      shared: ['react', 'react-dom'],
+      runtimePlugins: [path.join(__dirname, './mf.js')]
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html'

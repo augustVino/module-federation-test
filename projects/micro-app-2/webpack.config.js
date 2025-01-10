@@ -131,7 +131,8 @@ module.exports = {
         'react-dom': {
           singleton: true
         }
-      }
+      },
+      runtimePlugins: [path.join(__dirname, './mf.js')]
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html'
